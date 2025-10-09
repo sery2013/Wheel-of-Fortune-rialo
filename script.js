@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
   piece.className = 'piece';
   piece.innerHTML = `
     <svg width="70" height="70" viewBox="0 0 24 24">
-      <circle cx="12" cy="8" r="5" fill="#3498db"/>
-      <rect x="8" y="14" width="8" height="8" rx="2" fill="#2ecc71"/>
-      <line x1="10" y1="17" x2="14" y2="17" stroke="black" stroke-width="1.5"/>
+      <circle cx="12" cy="8" r="6" fill="#3498db"/>
+      <rect x="8" y="15" width="8" height="8" rx="2" fill="#2ecc71"/>
+      <line x1="10" y1="18" x2="14" y2="18" stroke="black" stroke-width="1.5"/>
     </svg>
   `;
   cells[route[0]].appendChild(piece);
@@ -105,8 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
         step++;
 
         const currentCell = cells[route[currentRouteIndex]];
-        piece.style.transition = 'all 0.5s ease';
-        piece.style.transform = `translate(${currentCell.offsetLeft - cells[route[currentPosition]].offsetLeft}px, ${currentCell.offsetTop - cells[route[currentPosition]].offsetTop}px)`;
+        piece.style.transition = 'all 0.5s ease'; // 0.5 секунды на 1 клетку
+        piece.style.left = currentCell.offsetLeft + currentCell.offsetWidth / 2 + 'px';
+        piece.style.top = currentCell.offsetTop + currentCell.offsetHeight / 2 + 'px';
 
         setTimeout(() => {
           if (step < steps) {
@@ -130,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
             isRolling = false;
             rollBtn.disabled = false;
           }
-        }, 500); // Замедлили анимацию до 0.5 секунды для лучшего восприятия
+        }, 500); // 0.5 секунды между шагами
       }
     };
 
