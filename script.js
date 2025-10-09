@@ -12,13 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let totalPoints = 0;
   let isSpinning = false;
 
-  // Генерация секторов
+  // Создаём сектора: 2 "RIALO CLUB MEMBER", остальные — 50, 100, ..., 600
   for (let i = 0; i < totalSections; i++) {
     if (i === 3 || i === 8) {
       sections.push({ text: "RIALO CLUB MEMBER", type: "special" });
     } else {
-      const points = Math.floor(Math.random() * (500 - 50 + 1)) + 50;
-      sections.push({ text: `${points}`, type: "points", value: points });
+      const value = (i % 10 + 1) * 50; // 50, 100, ..., 500 (но не более 10 секторов)
+      // Но у нас 10 обычных секторов, поэтому:
+      const pointValues = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500];
+      const value = pointValues[(i - (i >= 3 ? 1 : 0) - (i >= 8 ? 1 : 0)) % pointValues.length];
+      sections.push({ text: `${value}`, type: "points", value: value });
     }
   }
 
@@ -45,10 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.save();
       ctx.translate(centerX, centerY);
       ctx.rotate(startAngle + anglePerSection / 2);
-      ctx.textAlign = 'right';
-      ctx.fillStyle = 'white';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = sections[i].type === 'special' ? 'black' : 'white';
       ctx.font = 'bold 14px Arial';
-      ctx.fillText(sections[i].text, radius - 30, 5);
+      ctx.fillText(sections[i].text, radius * 0.7, 0);
       ctx.restore();
     }
   }
@@ -114,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
       confetti.style.transform = `scale(${Math.random() * 1.5 + 0.5})`;
       confettiContainer.appendChild(confetti);
 
-      // Анимация
       confetti.animate(
         [
           { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
