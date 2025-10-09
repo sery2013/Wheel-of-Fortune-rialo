@@ -38,6 +38,7 @@ h1 {
 .board {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   gap: 5px;
   width: 500px;
   height: 500px;
@@ -52,7 +53,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
+  font-size: 10px;
   color: white;
   border: 1px solid #444;
   overflow: hidden;
@@ -82,7 +83,7 @@ h1 {
   background-color: red;
   border-radius: 50%;
   z-index: 10;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .controls {
