@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentPosition = 0;
   let isRolling = false;
 
-  // Генерация игрового поля
+  // Генерация игрового поля (25 клеток)
   const cells = [];
   const totalCells = 25;
   const specialCells = [5, 10, 15, 20, 22, 24]; // Индексы специальных клеток
@@ -20,17 +20,21 @@ document.addEventListener("DOMContentLoaded", () => {
     "Блок!",
     "Приз"
   ];
+  const penaltyCellIndex = 12; // Клетка с штрафом
 
   for (let i = 0; i < totalCells; i++) {
     const cell = document.createElement('div');
     cell.className = 'cell';
     cell.dataset.index = i;
 
-    if (specialCells.includes(i)) {
+    if (i === penaltyCellIndex) {
+      cell.classList.add('penalty');
+      cell.textContent = '✘'; // Знак штрафа
+    } else if (specialCells.includes(i)) {
       cell.textContent = specialTexts[specialCells.indexOf(i)];
       cell.classList.add('special');
     } else {
-      const value = ((i - specialCells.filter(x => x < i).length) + 1) * 50;
+      const value = ((i - specialCells.filter(x => x < i).length) - (i >= penaltyCellIndex ? 1 : 0) + 1) * 50;
       cell.textContent = value;
     }
 
@@ -71,7 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
       currentPosition = next;
 
       const cell = cells[next];
-      if (cell.classList.contains('special')) {
+
+      if (cell.classList.contains('penalty')) {
+        totalPoints -= 200;
+        pointsDisplay.textContent = totalPoints;
+        alert('Штраф! -200 очков');
+      } else if (cell.classList.contains('special')) {
         // Можно добавить логику для специальных клеток
         alert(`Специальная клетка: ${cell.textContent}`);
       } else {
