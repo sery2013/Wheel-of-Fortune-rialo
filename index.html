@@ -8,15 +8,25 @@
 <body>
   <div class="container">
     <h1>Монополия | Игра</h1>
-    <div class="game-info">
-      <div class="score">Очки: <span id="points">0</span></div>
-      <button id="roll-btn">Бросить кости</button>
-      <div class="dice-container">
-        <div class="dice" id="dice">?</div>
+
+    <div class="game-area">
+      <!-- Левое поле -->
+      <div class="board-container">
+        <div class="board" id="board"></div>
+      </div>
+
+      <!-- Правая часть -->
+      <div class="controls">
+        <div class="dice-container">
+          <div class="dice" id="dice">?</div>
+          <button id="roll-btn">Бросить кости</button>
+        </div>
+
+        <div class="score-container">
+          <div class="score">Очки: <span id="points">0</span></div>
+        </div>
       </div>
     </div>
-
-    <div class="board" id="board"></div>
 
     <footer>
       <p>© 2025 Монополия | Игра для GitHub Pages</p>
