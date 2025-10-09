@@ -61,11 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Фигурка (SVG-робот)
+  // Фигурка (SVG-робот, размером 40x40)
   const piece = document.createElement('div');
   piece.className = 'piece';
   piece.innerHTML = `
-    <svg width="30" height="30" viewBox="0 0 24 24">
+    <svg width="40" height="40" viewBox="0 0 24 24">
       <circle cx="12" cy="8" r="4" fill="#3498db"/>
       <rect x="8" y="13" width="8" height="8" rx="2" fill="#2ecc71"/>
       <line x1="10" y1="16" x2="14" y2="16" stroke="black" stroke-width="1"/>
@@ -96,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function movePiece(steps) {
-    let nextPos = (currentPosition + steps) % route.length;
     let currentRouteIndex = currentPosition;
     let step = 0;
 
