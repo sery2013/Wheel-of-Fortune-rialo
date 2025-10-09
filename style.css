@@ -73,11 +73,11 @@ h1 {
 
 .piece {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
   z-index: 10;
-  transition: all 0.3s ease;
-  pointer-events: none; /* чтобы не мешала при наведении */
+  transition: all 0.5s ease; /* Плавное движение */
+  pointer-events: none;
 }
 
 .controls {
