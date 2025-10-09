@@ -76,8 +76,11 @@ h1 {
   width: 70px;
   height: 70px;
   z-index: 10;
-  transition: all 0.5s ease; /* Плавное движение */
+  transition: all 0.5s ease; /* 0.5 секунды на 1 клетку */
   pointer-events: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .controls {
