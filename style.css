@@ -11,9 +11,9 @@ body {
 }
 
 .container {
-  text-align: center;
   padding: 20px;
-  max-width: 800px;
+  max-width: 1000px;
+  width: 100%;
 }
 
 h1 {
@@ -21,59 +21,18 @@ h1 {
   margin-bottom: 20px;
   color: gold;
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  text-align: center;
 }
 
-.game-info {
-  margin-bottom: 30px;
-}
-
-.score {
-  font-size: 1.8em;
-  color: gold;
-  margin-bottom: 15px;
-}
-
-#roll-btn {
-  padding: 12px 30px;
-  font-size: 1.2em;
-  background-color: #e74c3c;
-  border: none;
-  border-radius: 50px;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#roll-btn:hover {
-  background-color: #c0392b;
-}
-
-#roll-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.dice-container {
-  margin-top: 15px;
-}
-
-.dice {
-  width: 60px;
-  height: 60px;
-  background: white;
-  border-radius: 10px;
-  display: inline-flex;
+.game-area {
+  display: flex;
+  gap: 30px;
   justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  color: black;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  animation: roll 0.5s infinite;
+  align-items: flex-start;
 }
 
-@keyframes roll {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.board-container {
+  flex: 1;
 }
 
 .board {
@@ -106,6 +65,16 @@ h1 {
   font-weight: bold;
 }
 
+.cell.penalty {
+  background: #c0392b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .piece {
   position: absolute;
   width: 20px;
@@ -116,8 +85,70 @@ h1 {
   transition: all 0.5s ease;
 }
 
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+.dice-container {
+  text-align: center;
+}
+
+.dice {
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: black;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+  animation: roll 0.5s infinite;
+}
+
+@keyframes roll {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#roll-btn {
+  padding: 12px 20px;
+  font-size: 1.2em;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#roll-btn:hover {
+  background-color: #c0392b;
+}
+
+#roll-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.score-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.score {
+  font-size: 1.8em;
+  color: gold;
+}
+
 footer {
   margin-top: 30px;
+  text-align: center;
   font-size: 0.9em;
   color: #bbb;
 }
