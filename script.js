@@ -101,42 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const moveStep = () => {
       if (step < steps) {
-        currentRouteIndex = (currentRouteIndex + 1) % route.length;
-        step++;
-
-        const currentCell = cells[route[currentRouteIndex]];
-        piece.style.transition = 'all 0.5s ease'; // 0.5 секунды на 1 клетку
-        piece.style.left = currentCell.offsetLeft + currentCell.offsetWidth / 2 + 'px';
-        piece.style.top = currentCell.offsetTop + currentCell.offsetHeight / 2 + 'px';
-
-        setTimeout(() => {
-          if (step < steps) {
-            moveStep();
-          } else {
-            currentPosition = currentRouteIndex;
-            const cell = cells[route[currentPosition]];
-            const content = contents[currentPosition];
-
-            if (content.type === 'penalty') {
-              totalPoints -= 200;
-              pointsDisplay.textContent = totalPoints;
-              alert('Штраф! -200 очков');
-            } else if (content.type === 'special') {
-              alert(`Специальная клетка: ${content.value}`);
-            } else {
-              totalPoints += content.value;
-              pointsDisplay.textContent = totalPoints;
-            }
-
-            isRolling = false;
-            rollBtn.disabled = false;
-          }
-        }, 500); // 0.5 секунды между шагами
-      }
-    };
-
-    moveStep();
-  }
-
-  rollBtn.addEventListener('click', rollDice);
-});
+       
