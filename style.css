@@ -46,6 +46,7 @@ h1 {
   border: 2px solid #ddd;
   background: #34495e;
   padding: 10px;
+  position: relative;
 }
 
 .cell {
@@ -72,10 +73,11 @@ h1 {
 
 .piece {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   z-index: 10;
   transition: all 0.3s ease;
+  pointer-events: none; /* чтобы не мешала при наведении */
 }
 
 .controls {
