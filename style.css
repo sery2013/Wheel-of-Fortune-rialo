@@ -118,35 +118,4 @@ h1 {
   padding: 12px 20px;
   font-size: 1.2em;
   background-color: #e74c3c;
-  border: none;
-  border-radius: 50px;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#roll-btn:hover {
-  background-color: #c0392b;
-}
-
-#roll-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.score-container {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.score {
-  font-size: 1.8em;
-  color: gold;
-}
-
-footer {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 0.9em;
-  color: #bbb;
-}
+  border
